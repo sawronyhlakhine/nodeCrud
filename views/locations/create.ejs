@@ -1,0 +1,44 @@
+
+
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+            <h1>
+             Create New Location
+            </h1>
+           
+          </section>
+      
+          <!-- Main content -->
+          <section class="content">
+                <% if(errors) { %>
+                    <% for(var i=0; i<errors.length;i++) {%>
+                        <p class="alert alert-danger"><%= errors[i].msg %></p>
+                    <% } %>
+            <% } %>
+
+                <form action="/locations/store" method="POST">
+
+                        <div class="form-group">
+                             <label for="">Name</label>
+                             <input type="text" class="form-control" name="name" />
+                        </div>
+                    
+                        <div class="form-group">
+                                <label for="">Type</label>
+                                <select name="type" class="form-control">
+                                   <% for(var i=0; i < types.length; i ++){ %>
+                                    <option value="<%= i %>" ><%= types[i] %></option>
+                                    <% } %>
+                                </select>
+                           </div>
+                    
+                           <div class="form-group">
+                               <button class="btn btn-success">Submit</button>
+                               <a href="/locations" class="btn btn-warning">Cancel</a>
+                           </div>
+                    
+                    </form>
+                    
+            
+       </section>
+</section>
